@@ -1,0 +1,55 @@
+import "azostar.lt"
+import "spce.lt"
+
+# In this example we are using PACKMOL so we don't have to specify the position
+# of every molecule.  Instead we list the number of molecules of each type 
+# that we need.  However you must be careful to list the lipids and water in
+# the same order they appear in the "mix_lipids+water.inp" (PACKMOL input) file:
+
+lipids = new Azostar[NUMAZO]
+
+waters = new SPCE[NUMWATER]
+
+# How big is the simulation box?
+
+write_once("Data Boundary") {
+  0 LX xlo xhi
+  0 LY ylo yhi
+  0 LZ zlo zhi
+}
+
+
+# Define interactions between atoms in different molecule types (water & lipids)
+
+#write_once("In Settings") {
+#pair_coeff @atom:MW/P4 @atom:DPPC/Q0 lj/gromacs/coul/gromacs 1.3384321223709 4.7
+#pair_coeff @atom:MW/P4 @atom:DPPC/Qa lj/gromacs/coul/gromacs 1.3384321223709 4.7
+#pair_coeff @atom:MW/P4 @atom:DPPC/Na lj/gromacs/coul/gromacs 0.9560229445507 4.7
+#pair_coeff @atom:MW/P4 @atom:DPPC/C1 lj/gromacs/coul/gromacs 0.4780114722753 4.7
+}
+
+
+
+
+###############################################################################
+# NOTE: If you don't want to use PACKMOL, you can form a bilayer explicitly
+#       using moltemplate's "move" and "rot" commands.  For example, you can
+#       replace "lipids = new DPPC[300]" and "waters = new MW[6000]" with:
+#
+#lipids = new DPPC [13].move(7.6923,  0,  0)    # Arrange 13x13 lipids in a an
+#                  [13].move(0, 7.6923,  0)     # array distributed in XY plane
+#                   [2].rot(180, 1, 0, 0)       # <--make a copy and rotate 180
+#
+#waters = new MW [25].move(4.0, 0, 0)           # Make a rectangular box of
+#                [25].move(0, 4.0, 0)           # water.  The spacing between
+#                [13].move(0, 0, 4.23)          # waters is not very important.
+#                                               # Later we will equilibrate the
+#                                               # system using (anisotroic) NPT.
+#
+# #Finally, move the waters upwards so that they don't overlap with the lipids:
+#
+#waters[*][*][*].move(0, 0, 22.4)
+#
+# You can also build random mixtures of molecules using the "new random" command
+#
+###############################################################################

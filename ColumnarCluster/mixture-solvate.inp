@@ -1,0 +1,25 @@
+## PACKMOL script to solvate the structures generated with MOLTEMPLATE
+
+# All the atoms from diferent molecules will be separated at least by MYTOL, e.g. 2.0
+# distance units = angstrom
+tolerance MYTOL
+
+# The file type of input and output files is PDB
+filetype pdb
+
+# The name of the output file
+output OUTPUT.pdb
+
+# put the cluster at the center of the box
+structure INPUT.pdb 
+  number 1
+  center
+  fixed HALFX HALFY HALFZ 0. 0. 0.
+end structure
+
+# surround it by NWATER water molecules filling the entire box
+# careful at box edges! keep some distance
+structure water.pdb
+  number NWATER
+  inside box 1. 1. 1. LX LY LZ 
+end structure

@@ -1,0 +1,906 @@
+Azostar {
+
+  ### LAMMPS commands for initialization
+  ### (These can be overridden later.)
+
+
+  write_once("In Init") {
+    atom_style      full
+    units           real
+    kspace_style	pppm 1.0e-4
+    special_bonds     lj/coul 0.0 0.0 1.0 dihedral yes              
+    pair_style	       lj/cut/coul/long 9.8 9.8
+    bond_style        harmonic
+    angle_style       harmonic
+    dihedral_style    harmonic
+    improper_style    umbrella
+    pair_modify     mix arithmetic                  
+  }
+
+  write_once("In Settings") {
+    pair_coeff @atom:C_R @atom:C_R 0.095100 3.472990
+    pair_coeff @atom:C_2 @atom:C_2 0.095100 3.472990
+    pair_coeff @atom:O_2 @atom:O_2 0.095700 3.033154
+    pair_coeff @atom:N_R @atom:N_R 0.077400 3.262560
+    pair_coeff @atom:N_2 @atom:N_2 0.077400 3.262560
+    pair_coeff @atom:C_3 @atom:C_3 0.095100 3.472990
+    pair_coeff @atom:H_ @atom:H_ 0.015200 2.846421
+    pair_coeff @atom:H___A @atom:H___A 0.000100 2.846421
+  }
+
+  write_once("In Settings") {
+    bond_coeff @bond:type1 525.000000 1.390000
+    bond_coeff @bond:type2 350.000000 1.020000
+    bond_coeff @bond:type3 700.000000 1.360000
+    bond_coeff @bond:type4 700.000000 1.220000
+    bond_coeff @bond:type5 700.000000 1.310000
+    bond_coeff @bond:type6 525.000000 1.340000
+    bond_coeff @bond:type7 350.000000 0.970000
+    bond_coeff @bond:type8 700.000000 1.305000
+    bond_coeff @bond:type9 700.000000 1.220000
+    bond_coeff @bond:type10 350.000000 1.410000
+    bond_coeff @bond:type11 350.000000 1.090000
+  }
+
+  write_once("In Settings") {
+    angle_coeff @angle:type1 50.000000 120.000000
+    angle_coeff @angle:type2 50.000000 120.000000
+    angle_coeff @angle:type3 50.000000 120.000000
+    angle_coeff @angle:type4 50.000000 120.000000
+    angle_coeff @angle:type5 50.000000 120.000000
+    angle_coeff @angle:type6 50.000000 120.000000
+    angle_coeff @angle:type7 50.000000 120.000000
+    angle_coeff @angle:type8 50.000000 120.000000
+    angle_coeff @angle:type9 50.000000 120.000000
+    angle_coeff @angle:type10 50.000000 120.000000
+    angle_coeff @angle:type11 50.000000 120.000000
+    angle_coeff @angle:type12 50.000000 120.000000
+    angle_coeff @angle:type13 50.000000 120.000000
+    angle_coeff @angle:type14 50.000000 120.000000
+    angle_coeff @angle:type15 50.000000 109.471000
+    angle_coeff @angle:type16 50.000000 109.471000
+  }
+
+  write_once("In Settings") {
+    dihedral_coeff @dihedral:type1 3.125000 -1 2
+    dihedral_coeff @dihedral:type2 3.125000 -1 2
+    dihedral_coeff @dihedral:type3 3.125000 -1 2
+    dihedral_coeff @dihedral:type4 3.125000 -1 2
+    dihedral_coeff @dihedral:type5 0.6250000 -1 2
+    dihedral_coeff @dihedral:type6 0.625000 -1 2
+    dihedral_coeff @dihedral:type7 3.125000 -1 2
+    dihedral_coeff @dihedral:type8 3.125000 -1 2
+    dihedral_coeff @dihedral:type9 3.125000 -1 2
+    dihedral_coeff @dihedral:type10 3.125000 -1 2
+    dihedral_coeff @dihedral:type11 1.2500000 -1 2
+    dihedral_coeff @dihedral:type12 1.2500000 -1 2
+    dihedral_coeff @dihedral:type13 3.125000 -1 2
+    dihedral_coeff @dihedral:type14 3.125000 -1 2
+    dihedral_coeff @dihedral:type15 3.125000 -1 2
+    dihedral_coeff @dihedral:type16 3.125000 -1 2
+    dihedral_coeff @dihedral:type17 3.125000 -1 2
+    dihedral_coeff @dihedral:type18 2.500000 -1 2
+    dihedral_coeff @dihedral:type19 12.000000 -1 2
+    dihedral_coeff @dihedral:type20 3.1250000 -1 2
+    dihedral_coeff @dihedral:type21 0.083333 -1 6
+    dihedral_coeff @dihedral:type22 0.166667 1 3
+  }
+
+  write_once("In Settings") {
+    improper_coeff @improper:type1 40.0000 0.0000
+    improper_coeff @improper:type2 40.0000 0.0000
+    improper_coeff @improper:type3 40.0000 0.0000
+    improper_coeff @improper:type4 40.0000 0.0000
+    improper_coeff @improper:type5 40.0000 0.0000
+    improper_coeff @improper:type6 40.0000 0.0000
+    improper_coeff @improper:type7 40.0000 0.0000
+    improper_coeff @improper:type8 0.0000 0.0000
+    improper_coeff @improper:type9 0.0000 0.0000
+  }
+
+
+  ### DATA sections
+
+
+  write_once("Data Masses") {
+    @atom:C_R 12.011000
+    @atom:C_2 12.011000
+    @atom:O_2 15.999400
+    @atom:N_R 14.006700
+    @atom:N_2 14.006700
+    @atom:C_3 12.011000
+    @atom:H_ 1.0080000
+    @atom:H___A 1.0080000
+  }
+
+  write("Data Atoms") {
+    $atom:C_R_1 $mol:id1 @atom:C_R -0.036600 1.208999991 0.694999993 -0.066
+    $atom:C_R_2 $mol:id1 @atom:C_R 0.041300 -0.003 1.389999986 -0.175999999
+    $atom:C_R_3 $mol:id1 @atom:C_R -0.036600 -1.192999959 0.667999983 -0.279000014
+    $atom:C_R_4 $mol:id1 @atom:C_R 0.041300 -1.190000057 -0.731999993 -0.225999996
+    $atom:C_R_5 $mol:id1 @atom:C_R -0.036600 0.026000001 -1.406999946 -0.112999998
+    $atom:C_R_6 $mol:id1 @atom:C_R 0.041300 1.233999968 -0.699999988 -0.046999998
+    $atom:C_2_1 $mol:id1 @atom:C_2 0.255200 -2.536000013 -1.406000018 -0.335000008
+    $atom:O_2_1 $mol:id1 @atom:O_2 -0.269000 -3.50999999 -0.787999988 -0.754999995
+    $atom:N_R_1 $mol:id1 @atom:N_R -0.322000 -2.573999882 -2.713000059 0.082999997
+    $atom:C_R_7 $mol:id1 @atom:C_R 0.041100 -3.660000086 -3.611000061 0.096000001
+    $atom:C_R_8 $mol:id1 @atom:C_R -0.036300 -4.93599987 -3.296000004 -0.409999996
+    $atom:C_R_9 $mol:id1 @atom:C_R -0.032500 -5.947000027 -4.244999886 -0.363999993
+    $atom:C_R_10 $mol:id1 @atom:C_R 0.085800 -5.721000195 -5.520999908 0.180999994
+    $atom:C_R_11 $mol:id1 @atom:C_R -0.032500 -4.447999954 -5.824999809 0.681999981
+    $atom:C_R_12 $mol:id1 @atom:C_R -0.036300 -3.427999973 -4.885000229 0.639999986
+    $atom:N_2_1 $mol:id1 @atom:N_2 -0.150600 -6.683000088 -6.552000046 0.273999989
+    $atom:N_2_2 $mol:id1 @atom:N_2 -0.150600 -7.823999882 -6.25 -0.185000002
+    $atom:C_R_13 $mol:id1 @atom:C_R 0.085800 -8.791000366 -7.263999939 -0.100000001
+    $atom:C_R_14 $mol:id1 @atom:C_R -0.032500 -8.583999634 -8.545999527 0.444000006
+    $atom:C_R_15 $mol:id1 @atom:C_R -0.036600 -9.607999802 -9.473999977 0.481000006
+    $atom:C_R_16 $mol:id1 @atom:C_R 0.036200 -10.897999763 -9.168000221 -0.030999999
+    $atom:C_R_17 $mol:id1 @atom:C_R -0.036600 -11.098999977 -7.875 -0.573000014
+    $atom:C_R_18 $mol:id1 @atom:C_R -0.032500 -10.062999725 -6.953999996 -0.603999972
+    $atom:N_R_2 $mol:id1 @atom:N_R -0.377700 -11.916000366 -10.098999977 -0.001
+    $atom:C_3_1 $mol:id1 @atom:C_3 0.006100 -13.239999771 -9.744999886 -0.48300001
+    $atom:C_3_2 $mol:id1 @atom:C_3 0.006100 -11.701999664 -11.399000168 0.612999976
+    $atom:H__1 $mol:id1 @atom:H_ 0.064000 2.10800004 1.297000051 0.02
+    $atom:H__2 $mol:id1 @atom:H_ 0.064000 -2.157000065 1.143000007 -0.430000007
+    $atom:H__3 $mol:id1 @atom:H_ 0.064000 0.097000003 -2.489000082 -0.100000001
+    $atom:H___A_1 $mol:id1 @atom:H___A 0.169800 -1.726999998 -3.075000048 0.497000009
+    $atom:H__4 $mol:id1 @atom:H_ 0.064600 -5.111999989 -2.313999891 -0.824999988
+    $atom:H__5 $mol:id1 @atom:H_ 0.064700 -6.933000088 -4.013999939 -0.75
+    $atom:H__6 $mol:id1 @atom:H_ 0.064700 -4.28000021 -6.811999798 1.100000024
+    $atom:H__7 $mol:id1 @atom:H_ 0.064600 -2.444999933 -5.136000156 1.029999971
+    $atom:H__8 $mol:id1 @atom:H_ 0.064700 -7.604000092 -8.791000366 0.837000012
+    $atom:H__9 $mol:id1 @atom:H_ 0.064600 -9.411999702 -10.449000359 0.910000026
+    $atom:H__10 $mol:id1 @atom:H_ 0.064600 -12.06499958 -7.59100008 -0.971000016
+    $atom:H__11 $mol:id1 @atom:H_ 0.064700 -10.220000267 -5.964000225 -1.019999981
+    $atom:H__12 $mol:id1 @atom:H_ 0.045600 -13.218999863 -9.449999809 -1.539999962
+    $atom:H__13 $mol:id1 @atom:H_ 0.045600 -13.68200016 -8.916999817 0.090000004
+    $atom:H__14 $mol:id1 @atom:H_ 0.045600 -13.899000168 -10.607999802 -0.391000003
+    $atom:H__15 $mol:id1 @atom:H_ 0.045600 -12.614999771 -11.98900032 0.528999984
+    $atom:H__16 $mol:id1 @atom:H_ 0.045600 -11.447999954 -11.31799984 1.67900002
+    $atom:H__17 $mol:id1 @atom:H_ 0.045600 -10.897000313 -11.954000473 0.115000002
+    $atom:C_2_2 $mol:id1 @atom:C_2 0.255200 0.093000002 2.894999981 -0.202999994
+    $atom:O_2_2 $mol:id1 @atom:O_2 -0.269000 1.167999983 3.446000099 -0.423000008
+    $atom:N_R_3 $mol:id1 @atom:N_R -0.322000 -1.078999996 3.563999891 0.046
+    $atom:C_R_19 $mol:id1 @atom:C_R 0.041100 -1.322999954 4.953000069 0.071000002
+    $atom:C_R_20 $mol:id1 @atom:C_R -0.036300 -0.340000004 5.920000076 -0.215000004
+    $atom:C_R_21 $mol:id1 @atom:C_R -0.032500 -0.670000017 7.267000198 -0.172000006
+    $atom:C_R_22 $mol:id1 @atom:C_R 0.085800 -1.970999956 7.68599987 0.152999997
+    $atom:C_R_23 $mol:id1 @atom:C_R -0.032500 -2.943000078 6.71600008 0.43599999
+    $atom:C_R_24 $mol:id1 @atom:C_R -0.036300 -2.625 5.366000175 0.395999998
+    $atom:N_2_3 $mol:id1 @atom:N_2 -0.150600 -2.403000116 9.029999733 0.224999994
+    $atom:N_2_4 $mol:id1 @atom:N_2 -0.150600 -1.506000042 9.88599968 -0.035
+    $atom:C_R_25 $mol:id1 @atom:C_R 0.085800 -1.91900003 11.225999832 0.032000002
+    $atom:C_R_26 $mol:id1 @atom:C_R -0.032500 -3.21600008 11.664999962 0.358999997
+    $atom:C_R_27 $mol:id1 @atom:C_R -0.036600 -3.519000053 13.012999535 0.398000002
+    $atom:C_R_28 $mol:id1 @atom:C_R 0.036200 -2.535000086 13.998000145 0.108000003
+    $atom:C_R_29 $mol:id1 @atom:C_R -0.036600 -1.231999993 13.546999931 -0.216000006
+    $atom:C_R_30 $mol:id1 @atom:C_R -0.032500 -0.941999972 12.192000389 -0.250999987
+    $atom:N_R_4 $mol:id1 @atom:N_R -0.377700 -2.84100008 15.342000008 0.140000001
+    $atom:C_3_3 $mol:id1 @atom:C_3 0.006100 -1.805999994 16.330999374 -0.111000001
+    $atom:C_3_4 $mol:id1 @atom:C_3 0.006100 -4.171999931 15.781999588 0.526000023
+    $atom:H___A_2 $mol:id1 @atom:H___A 0.169800 -1.873999953 2.994999886 0.298999995
+    $atom:H__18 $mol:id1 @atom:H_ 0.064600 0.661000013 5.598999977 -0.460999995
+    $atom:H__19 $mol:id1 @atom:H_ 0.064700 0.077 8.020999908 -0.389999986
+    $atom:H__20 $mol:id1 @atom:H_ 0.064700 -3.946000099 7.046999931 0.68599999
+    $atom:H__21 $mol:id1 @atom:H_ 0.064600 -3.390000105 4.624000072 0.61500001
+    $atom:H__22 $mol:id1 @atom:H_ 0.064700 -3.973999977 10.923000336 0.58099997
+    $atom:H__23 $mol:id1 @atom:H_ 0.064600 -4.52699995 13.31400013 0.656000018
+    $atom:H__24 $mol:id1 @atom:H_ 0.064600 -0.44600001 14.256999969 -0.439999998
+    $atom:H__25 $mol:id1 @atom:H_ 0.064700 0.057999998 11.848999977 -0.5
+    $atom:H__26 $mol:id1 @atom:H_ 0.045600 -0.99000001 16.270000458 0.623000026
+    $atom:H__27 $mol:id1 @atom:H_ 0.045600 -2.24000001 17.329000473 -0.050999999
+    $atom:H__28 $mol:id1 @atom:H_ 0.045600 -1.370000005 16.212999344 -1.110999942
+    $atom:H__29 $mol:id1 @atom:H_ 0.045600 -4.940999985 15.38599968 -0.150000006
+    $atom:H__30 $mol:id1 @atom:H_ 0.045600 -4.217000008 16.870000839 0.479999989
+    $atom:H__31 $mol:id1 @atom:H_ 0.045600 -4.429999828 15.473999977 1.549000025
+    $atom:C_2_3 $mol:id1 @atom:C_2 0.255200 2.489000082 -1.529999971 0.07
+    $atom:O_2_3 $mol:id1 @atom:O_2 -0.269000 2.428999901 -2.700999975 0.432999998
+    $atom:N_R_5 $mol:id1 @atom:N_R -0.322000 3.65199995 -0.88499999 -0.270000011
+    $atom:C_R_31 $mol:id1 @atom:C_R 0.041100 4.975999832 -1.368000031 -0.246000007
+    $atom:C_R_32 $mol:id1 @atom:C_R -0.036300 5.326000214 -2.65199995 0.210999995
+    $atom:C_R_33 $mol:id1 @atom:C_R -0.032500 6.657999992 -3.042999983 0.209000006
+    $atom:C_R_34 $mol:id1 @atom:C_R 0.085800 7.668000221 -2.176000118 -0.244000003
+    $atom:C_R_35 $mol:id1 @atom:C_R -0.032500 7.309000015 -0.898999989 -0.699000001
+    $atom:C_R_36 $mol:id1 @atom:C_R -0.036300 5.980999947 -0.497000009 -0.699000001
+    $atom:N_2_5 $mol:id1 @atom:N_2 -0.150600 9.046999931 -2.480000019 -0.287
+    $atom:N_2_6 $mol:id1 @atom:N_2 -0.150600 9.345000267 -3.638000011 0.130999997
+    $atom:C_R_37 $mol:id1 @atom:C_R 0.085800 10.711999893 -3.954999924 0.096000001
+    $atom:C_R_38 $mol:id1 @atom:C_R -0.032500 11.736000061 -3.101000071 -0.354999989
+    $atom:C_R_39 $mol:id1 @atom:C_R -0.036600 13.055999756 -3.512000084 -0.347000003
+    $atom:C_R_40 $mol:id1 @atom:C_R 0.036200 13.421999931 -4.80700016 0.112000003
+    $atom:C_R_41 $mol:id1 @atom:C_R -0.036600 12.385000229 -5.657000065 0.568000019
+    $atom:C_R_42 $mol:id1 @atom:C_R -0.032500 11.065999985 -5.232999802 0.55400002
+    $atom:N_R_6 $mol:id1 @atom:N_R -0.377700 14.73900032 -5.217000008 0.109999999
+    $atom:C_3_5 $mol:id1 @atom:C_3 0.006100 15.093999863 -6.520999908 0.643999994
+    $atom:C_3_6 $mol:id1 @atom:C_3 0.006100 15.791000366 -4.302999973 -0.300999999
+    $atom:H___A_3 $mol:id1 @atom:H___A 0.169800 3.552000046 0.045000002 -0.648999989
+    $atom:H__32 $mol:id1 @atom:H_ 0.064600 4.551000118 -3.321000099 0.55400002
+    $atom:H__33 $mol:id1 @atom:H_ 0.064700 6.940999985 -4.028999805 0.558000028
+    $atom:H__34 $mol:id1 @atom:H_ 0.064700 8.093000412 -0.236000001 -1.046000004
+    $atom:H__35 $mol:id1 @atom:H_ 0.064600 5.71600008 0.497000009 -1.052000046
+    $atom:H__36 $mol:id1 @atom:H_ 0.064700 11.468999863 -2.111000061 -0.708000004
+    $atom:H__37 $mol:id1 @atom:H_ 0.064600 13.817000389 -2.825999975 -0.699000001
+    $atom:H__38 $mol:id1 @atom:H_ 0.064600 12.612000465 -6.651000023 0.934000015
+    $atom:H__39 $mol:id1 @atom:H_ 0.064700 10.272999763 -5.887000084 0.903999984
+    $atom:H__40 $mol:id1 @atom:H_ 0.045600 14.833000183 -6.619999886 1.707000017
+    $atom:H__41 $mol:id1 @atom:H_ 0.045600 16.169000626 -6.669000149 0.54400003
+    $atom:H__42 $mol:id1 @atom:H_ 0.045600 14.593000412 -7.329999924 0.097000003
+    $atom:H__43 $mol:id1 @atom:H_ 0.045600 15.842000008 -3.413000107 0.340999991
+    $atom:H__44 $mol:id1 @atom:H_ 0.045600 15.651000023 -3.96600008 -1.335999966
+    $atom:H__45 $mol:id1 @atom:H_ 0.045600 16.752000809 -4.815000057 -0.246000007
+  }
+
+  write("Data Bonds") {
+    $bond:id1 @bond:type1 $atom:C_R_1 $atom:C_R_2
+    $bond:id2 @bond:type1 $atom:C_R_1 $atom:C_R_6
+    $bond:id3 @bond:type2 $atom:C_R_1 $atom:H__1
+    $bond:id4 @bond:type1 $atom:C_R_2 $atom:C_R_3
+    $bond:id5 @bond:type3 $atom:C_R_2 $atom:C_2_2
+    $bond:id6 @bond:type1 $atom:C_R_3 $atom:C_R_4
+    $bond:id7 @bond:type2 $atom:C_R_3 $atom:H__2
+    $bond:id8 @bond:type1 $atom:C_R_4 $atom:C_R_5
+    $bond:id9 @bond:type3 $atom:C_R_4 $atom:C_2_1
+    $bond:id10 @bond:type1 $atom:C_R_5 $atom:C_R_6
+    $bond:id11 @bond:type2 $atom:C_R_5 $atom:H__3
+    $bond:id12 @bond:type3 $atom:C_R_6 $atom:C_2_3
+    $bond:id13 @bond:type4 $atom:C_2_1 $atom:O_2_1
+    $bond:id14 @bond:type5 $atom:C_2_1 $atom:N_R_1
+    $bond:id15 @bond:type6 $atom:C_R_7 $atom:N_R_1
+    $bond:id16 @bond:type7 $atom:N_R_1 $atom:H___A_1
+    $bond:id17 @bond:type1 $atom:C_R_7 $atom:C_R_8
+    $bond:id18 @bond:type1 $atom:C_R_7 $atom:C_R_12
+    $bond:id19 @bond:type1 $atom:C_R_8 $atom:C_R_9
+    $bond:id20 @bond:type2 $atom:C_R_8 $atom:H__4
+    $bond:id21 @bond:type1 $atom:C_R_9 $atom:C_R_10
+    $bond:id22 @bond:type2 $atom:C_R_9 $atom:H__5
+    $bond:id23 @bond:type1 $atom:C_R_10 $atom:C_R_11
+    $bond:id24 @bond:type8 $atom:C_R_10 $atom:N_2_1
+    $bond:id25 @bond:type1 $atom:C_R_11 $atom:C_R_12
+    $bond:id26 @bond:type2 $atom:C_R_11 $atom:H__6
+    $bond:id27 @bond:type2 $atom:C_R_12 $atom:H__7
+    $bond:id28 @bond:type9 $atom:N_2_1 $atom:N_2_2
+    $bond:id29 @bond:type8 $atom:C_R_13 $atom:N_2_2
+    $bond:id30 @bond:type1 $atom:C_R_13 $atom:C_R_14
+    $bond:id31 @bond:type1 $atom:C_R_13 $atom:C_R_18
+    $bond:id32 @bond:type1 $atom:C_R_14 $atom:C_R_15
+    $bond:id33 @bond:type2 $atom:C_R_14 $atom:H__8
+    $bond:id34 @bond:type1 $atom:C_R_15 $atom:C_R_16
+    $bond:id35 @bond:type2 $atom:C_R_15 $atom:H__9
+    $bond:id36 @bond:type1 $atom:C_R_16 $atom:C_R_17
+    $bond:id37 @bond:type6 $atom:C_R_16 $atom:N_R_2
+    $bond:id38 @bond:type1 $atom:C_R_17 $atom:C_R_18
+    $bond:id39 @bond:type2 $atom:C_R_17 $atom:H__10
+    $bond:id40 @bond:type2 $atom:C_R_18 $atom:H__11
+    $bond:id41 @bond:type10 $atom:N_R_2 $atom:C_3_1
+    $bond:id42 @bond:type10 $atom:N_R_2 $atom:C_3_2
+    $bond:id43 @bond:type11 $atom:C_3_1 $atom:H__12
+    $bond:id44 @bond:type11 $atom:C_3_1 $atom:H__13
+    $bond:id45 @bond:type11 $atom:C_3_1 $atom:H__14
+    $bond:id46 @bond:type11 $atom:C_3_2 $atom:H__15
+    $bond:id47 @bond:type11 $atom:C_3_2 $atom:H__16
+    $bond:id48 @bond:type11 $atom:C_3_2 $atom:H__17
+    $bond:id49 @bond:type4 $atom:C_2_2 $atom:O_2_2
+    $bond:id50 @bond:type5 $atom:C_2_2 $atom:N_R_3
+    $bond:id51 @bond:type6 $atom:C_R_19 $atom:N_R_3
+    $bond:id52 @bond:type7 $atom:N_R_3 $atom:H___A_2
+    $bond:id53 @bond:type1 $atom:C_R_19 $atom:C_R_20
+    $bond:id54 @bond:type1 $atom:C_R_19 $atom:C_R_24
+    $bond:id55 @bond:type1 $atom:C_R_20 $atom:C_R_21
+    $bond:id56 @bond:type2 $atom:C_R_20 $atom:H__18
+    $bond:id57 @bond:type1 $atom:C_R_21 $atom:C_R_22
+    $bond:id58 @bond:type2 $atom:C_R_21 $atom:H__19
+    $bond:id59 @bond:type1 $atom:C_R_22 $atom:C_R_23
+    $bond:id60 @bond:type8 $atom:C_R_22 $atom:N_2_3
+    $bond:id61 @bond:type1 $atom:C_R_23 $atom:C_R_24
+    $bond:id62 @bond:type2 $atom:C_R_23 $atom:H__20
+    $bond:id63 @bond:type2 $atom:C_R_24 $atom:H__21
+    $bond:id64 @bond:type9 $atom:N_2_3 $atom:N_2_4
+    $bond:id65 @bond:type8 $atom:C_R_25 $atom:N_2_4
+    $bond:id66 @bond:type1 $atom:C_R_25 $atom:C_R_26
+    $bond:id67 @bond:type1 $atom:C_R_25 $atom:C_R_30
+    $bond:id68 @bond:type1 $atom:C_R_26 $atom:C_R_27
+    $bond:id69 @bond:type2 $atom:C_R_26 $atom:H__22
+    $bond:id70 @bond:type1 $atom:C_R_27 $atom:C_R_28
+    $bond:id71 @bond:type2 $atom:C_R_27 $atom:H__23
+    $bond:id72 @bond:type1 $atom:C_R_28 $atom:C_R_29
+    $bond:id73 @bond:type6 $atom:C_R_28 $atom:N_R_4
+    $bond:id74 @bond:type1 $atom:C_R_29 $atom:C_R_30
+    $bond:id75 @bond:type2 $atom:C_R_29 $atom:H__24
+    $bond:id76 @bond:type2 $atom:C_R_30 $atom:H__25
+    $bond:id77 @bond:type10 $atom:N_R_4 $atom:C_3_3
+    $bond:id78 @bond:type10 $atom:N_R_4 $atom:C_3_4
+    $bond:id79 @bond:type11 $atom:C_3_3 $atom:H__26
+    $bond:id80 @bond:type11 $atom:C_3_3 $atom:H__27
+    $bond:id81 @bond:type11 $atom:C_3_3 $atom:H__28
+    $bond:id82 @bond:type11 $atom:C_3_4 $atom:H__29
+    $bond:id83 @bond:type11 $atom:C_3_4 $atom:H__30
+    $bond:id84 @bond:type11 $atom:C_3_4 $atom:H__31
+    $bond:id85 @bond:type4 $atom:C_2_3 $atom:O_2_3
+    $bond:id86 @bond:type5 $atom:C_2_3 $atom:N_R_5
+    $bond:id87 @bond:type6 $atom:C_R_31 $atom:N_R_5
+    $bond:id88 @bond:type7 $atom:N_R_5 $atom:H___A_3
+    $bond:id89 @bond:type1 $atom:C_R_31 $atom:C_R_32
+    $bond:id90 @bond:type1 $atom:C_R_31 $atom:C_R_36
+    $bond:id91 @bond:type1 $atom:C_R_32 $atom:C_R_33
+    $bond:id92 @bond:type2 $atom:C_R_32 $atom:H__32
+    $bond:id93 @bond:type1 $atom:C_R_33 $atom:C_R_34
+    $bond:id94 @bond:type2 $atom:C_R_33 $atom:H__33
+    $bond:id95 @bond:type1 $atom:C_R_34 $atom:C_R_35
+    $bond:id96 @bond:type8 $atom:C_R_34 $atom:N_2_5
+    $bond:id97 @bond:type1 $atom:C_R_35 $atom:C_R_36
+    $bond:id98 @bond:type2 $atom:C_R_35 $atom:H__34
+    $bond:id99 @bond:type2 $atom:C_R_36 $atom:H__35
+    $bond:id100 @bond:type9 $atom:N_2_5 $atom:N_2_6
+    $bond:id101 @bond:type8 $atom:C_R_37 $atom:N_2_6
+    $bond:id102 @bond:type1 $atom:C_R_37 $atom:C_R_38
+    $bond:id103 @bond:type1 $atom:C_R_37 $atom:C_R_42
+    $bond:id104 @bond:type1 $atom:C_R_38 $atom:C_R_39
+    $bond:id105 @bond:type2 $atom:C_R_38 $atom:H__36
+    $bond:id106 @bond:type1 $atom:C_R_39 $atom:C_R_40
+    $bond:id107 @bond:type2 $atom:C_R_39 $atom:H__37
+    $bond:id108 @bond:type1 $atom:C_R_40 $atom:C_R_41
+    $bond:id109 @bond:type6 $atom:C_R_40 $atom:N_R_6
+    $bond:id110 @bond:type1 $atom:C_R_41 $atom:C_R_42
+    $bond:id111 @bond:type2 $atom:C_R_41 $atom:H__38
+    $bond:id112 @bond:type2 $atom:C_R_42 $atom:H__39
+    $bond:id113 @bond:type10 $atom:N_R_6 $atom:C_3_5
+    $bond:id114 @bond:type10 $atom:N_R_6 $atom:C_3_6
+    $bond:id115 @bond:type11 $atom:C_3_5 $atom:H__40
+    $bond:id116 @bond:type11 $atom:C_3_5 $atom:H__41
+    $bond:id117 @bond:type11 $atom:C_3_5 $atom:H__42
+    $bond:id118 @bond:type11 $atom:C_3_6 $atom:H__43
+    $bond:id119 @bond:type11 $atom:C_3_6 $atom:H__44
+    $bond:id120 @bond:type11 $atom:C_3_6 $atom:H__45
+  }
+
+  write("Data Angles") {
+    $angle:id1 @angle:type1 $atom:C_R_2 $atom:C_R_1 $atom:C_R_6
+    $angle:id2 @angle:type2 $atom:C_R_2 $atom:C_R_1 $atom:H__1
+    $angle:id3 @angle:type2 $atom:C_R_6 $atom:C_R_1 $atom:H__1
+    $angle:id4 @angle:type1 $atom:C_R_1 $atom:C_R_2 $atom:C_R_3
+    $angle:id5 @angle:type3 $atom:C_R_1 $atom:C_R_2 $atom:C_2_2
+    $angle:id6 @angle:type3 $atom:C_R_3 $atom:C_R_2 $atom:C_2_2
+    $angle:id7 @angle:type1 $atom:C_R_2 $atom:C_R_3 $atom:C_R_4
+    $angle:id8 @angle:type2 $atom:C_R_2 $atom:C_R_3 $atom:H__2
+    $angle:id9 @angle:type2 $atom:C_R_4 $atom:C_R_3 $atom:H__2
+    $angle:id10 @angle:type1 $atom:C_R_3 $atom:C_R_4 $atom:C_R_5
+    $angle:id11 @angle:type3 $atom:C_R_3 $atom:C_R_4 $atom:C_2_1
+    $angle:id12 @angle:type3 $atom:C_R_5 $atom:C_R_4 $atom:C_2_1
+    $angle:id13 @angle:type1 $atom:C_R_4 $atom:C_R_5 $atom:C_R_6
+    $angle:id14 @angle:type2 $atom:C_R_4 $atom:C_R_5 $atom:H__3
+    $angle:id15 @angle:type2 $atom:C_R_6 $atom:C_R_5 $atom:H__3
+    $angle:id16 @angle:type1 $atom:C_R_1 $atom:C_R_6 $atom:C_R_5
+    $angle:id17 @angle:type3 $atom:C_R_1 $atom:C_R_6 $atom:C_2_3
+    $angle:id18 @angle:type3 $atom:C_R_5 $atom:C_R_6 $atom:C_2_3
+    $angle:id19 @angle:type4 $atom:C_R_4 $atom:C_2_1 $atom:O_2_1
+    $angle:id20 @angle:type5 $atom:C_R_4 $atom:C_2_1 $atom:N_R_1
+    $angle:id21 @angle:type6 $atom:O_2_1 $atom:C_2_1 $atom:N_R_1
+    $angle:id22 @angle:type7 $atom:C_R_7 $atom:N_R_1 $atom:C_2_1
+    $angle:id23 @angle:type8 $atom:C_2_1 $atom:N_R_1 $atom:H___A_1
+    $angle:id24 @angle:type9 $atom:C_R_7 $atom:N_R_1 $atom:H___A_1
+    $angle:id25 @angle:type10 $atom:C_R_8 $atom:C_R_7 $atom:N_R_1
+    $angle:id26 @angle:type10 $atom:C_R_12 $atom:C_R_7 $atom:N_R_1
+    $angle:id27 @angle:type1 $atom:C_R_8 $atom:C_R_7 $atom:C_R_12
+    $angle:id28 @angle:type1 $atom:C_R_7 $atom:C_R_8 $atom:C_R_9
+    $angle:id29 @angle:type2 $atom:C_R_7 $atom:C_R_8 $atom:H__4
+    $angle:id30 @angle:type2 $atom:C_R_9 $atom:C_R_8 $atom:H__4
+    $angle:id31 @angle:type1 $atom:C_R_8 $atom:C_R_9 $atom:C_R_10
+    $angle:id32 @angle:type2 $atom:C_R_8 $atom:C_R_9 $atom:H__5
+    $angle:id33 @angle:type2 $atom:C_R_10 $atom:C_R_9 $atom:H__5
+    $angle:id34 @angle:type1 $atom:C_R_9 $atom:C_R_10 $atom:C_R_11
+    $angle:id35 @angle:type11 $atom:C_R_9 $atom:C_R_10 $atom:N_2_1
+    $angle:id36 @angle:type11 $atom:C_R_11 $atom:C_R_10 $atom:N_2_1
+    $angle:id37 @angle:type1 $atom:C_R_10 $atom:C_R_11 $atom:C_R_12
+    $angle:id38 @angle:type2 $atom:C_R_10 $atom:C_R_11 $atom:H__6
+    $angle:id39 @angle:type2 $atom:C_R_12 $atom:C_R_11 $atom:H__6
+    $angle:id40 @angle:type1 $atom:C_R_7 $atom:C_R_12 $atom:C_R_11
+    $angle:id41 @angle:type2 $atom:C_R_7 $atom:C_R_12 $atom:H__7
+    $angle:id42 @angle:type2 $atom:C_R_11 $atom:C_R_12 $atom:H__7
+    $angle:id43 @angle:type12 $atom:C_R_10 $atom:N_2_1 $atom:N_2_2
+    $angle:id44 @angle:type12 $atom:C_R_13 $atom:N_2_2 $atom:N_2_1
+    $angle:id45 @angle:type11 $atom:C_R_14 $atom:C_R_13 $atom:N_2_2
+    $angle:id46 @angle:type11 $atom:C_R_18 $atom:C_R_13 $atom:N_2_2
+    $angle:id47 @angle:type1 $atom:C_R_14 $atom:C_R_13 $atom:C_R_18
+    $angle:id48 @angle:type1 $atom:C_R_13 $atom:C_R_14 $atom:C_R_15
+    $angle:id49 @angle:type2 $atom:C_R_13 $atom:C_R_14 $atom:H__8
+    $angle:id50 @angle:type2 $atom:C_R_15 $atom:C_R_14 $atom:H__8
+    $angle:id51 @angle:type1 $atom:C_R_14 $atom:C_R_15 $atom:C_R_16
+    $angle:id52 @angle:type2 $atom:C_R_14 $atom:C_R_15 $atom:H__9
+    $angle:id53 @angle:type2 $atom:C_R_16 $atom:C_R_15 $atom:H__9
+    $angle:id54 @angle:type1 $atom:C_R_15 $atom:C_R_16 $atom:C_R_17
+    $angle:id55 @angle:type10 $atom:C_R_15 $atom:C_R_16 $atom:N_R_2
+    $angle:id56 @angle:type10 $atom:C_R_17 $atom:C_R_16 $atom:N_R_2
+    $angle:id57 @angle:type1 $atom:C_R_16 $atom:C_R_17 $atom:C_R_18
+    $angle:id58 @angle:type2 $atom:C_R_16 $atom:C_R_17 $atom:H__10
+    $angle:id59 @angle:type2 $atom:C_R_18 $atom:C_R_17 $atom:H__10
+    $angle:id60 @angle:type1 $atom:C_R_13 $atom:C_R_18 $atom:C_R_17
+    $angle:id61 @angle:type2 $atom:C_R_13 $atom:C_R_18 $atom:H__11
+    $angle:id62 @angle:type2 $atom:C_R_17 $atom:C_R_18 $atom:H__11
+    $angle:id63 @angle:type13 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1
+    $angle:id64 @angle:type13 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2
+    $angle:id65 @angle:type14 $atom:C_3_1 $atom:N_R_2 $atom:C_3_2
+    $angle:id66 @angle:type15 $atom:N_R_2 $atom:C_3_1 $atom:H__12
+    $angle:id67 @angle:type15 $atom:N_R_2 $atom:C_3_1 $atom:H__13
+    $angle:id68 @angle:type15 $atom:N_R_2 $atom:C_3_1 $atom:H__14
+    $angle:id69 @angle:type16 $atom:H__12 $atom:C_3_1 $atom:H__13
+    $angle:id70 @angle:type16 $atom:H__12 $atom:C_3_1 $atom:H__14
+    $angle:id71 @angle:type16 $atom:H__13 $atom:C_3_1 $atom:H__14
+    $angle:id72 @angle:type15 $atom:N_R_2 $atom:C_3_2 $atom:H__15
+    $angle:id73 @angle:type15 $atom:N_R_2 $atom:C_3_2 $atom:H__16
+    $angle:id74 @angle:type15 $atom:N_R_2 $atom:C_3_2 $atom:H__17
+    $angle:id75 @angle:type16 $atom:H__15 $atom:C_3_2 $atom:H__16
+    $angle:id76 @angle:type16 $atom:H__15 $atom:C_3_2 $atom:H__17
+    $angle:id77 @angle:type16 $atom:H__16 $atom:C_3_2 $atom:H__17
+    $angle:id78 @angle:type4 $atom:C_R_2 $atom:C_2_2 $atom:O_2_2
+    $angle:id79 @angle:type5 $atom:C_R_2 $atom:C_2_2 $atom:N_R_3
+    $angle:id80 @angle:type6 $atom:O_2_2 $atom:C_2_2 $atom:N_R_3
+    $angle:id81 @angle:type7 $atom:C_R_19 $atom:N_R_3 $atom:C_2_2
+    $angle:id82 @angle:type8 $atom:C_2_2 $atom:N_R_3 $atom:H___A_2
+    $angle:id83 @angle:type9 $atom:C_R_19 $atom:N_R_3 $atom:H___A_2
+    $angle:id84 @angle:type10 $atom:C_R_20 $atom:C_R_19 $atom:N_R_3
+    $angle:id85 @angle:type10 $atom:C_R_24 $atom:C_R_19 $atom:N_R_3
+    $angle:id86 @angle:type1 $atom:C_R_20 $atom:C_R_19 $atom:C_R_24
+    $angle:id87 @angle:type1 $atom:C_R_19 $atom:C_R_20 $atom:C_R_21
+    $angle:id88 @angle:type2 $atom:C_R_19 $atom:C_R_20 $atom:H__18
+    $angle:id89 @angle:type2 $atom:C_R_21 $atom:C_R_20 $atom:H__18
+    $angle:id90 @angle:type1 $atom:C_R_20 $atom:C_R_21 $atom:C_R_22
+    $angle:id91 @angle:type2 $atom:C_R_20 $atom:C_R_21 $atom:H__19
+    $angle:id92 @angle:type2 $atom:C_R_22 $atom:C_R_21 $atom:H__19
+    $angle:id93 @angle:type1 $atom:C_R_21 $atom:C_R_22 $atom:C_R_23
+    $angle:id94 @angle:type11 $atom:C_R_21 $atom:C_R_22 $atom:N_2_3
+    $angle:id95 @angle:type11 $atom:C_R_23 $atom:C_R_22 $atom:N_2_3
+    $angle:id96 @angle:type1 $atom:C_R_22 $atom:C_R_23 $atom:C_R_24
+    $angle:id97 @angle:type2 $atom:C_R_22 $atom:C_R_23 $atom:H__20
+    $angle:id98 @angle:type2 $atom:C_R_24 $atom:C_R_23 $atom:H__20
+    $angle:id99 @angle:type1 $atom:C_R_19 $atom:C_R_24 $atom:C_R_23
+    $angle:id100 @angle:type2 $atom:C_R_19 $atom:C_R_24 $atom:H__21
+    $angle:id101 @angle:type2 $atom:C_R_23 $atom:C_R_24 $atom:H__21
+    $angle:id102 @angle:type12 $atom:C_R_22 $atom:N_2_3 $atom:N_2_4
+    $angle:id103 @angle:type12 $atom:C_R_25 $atom:N_2_4 $atom:N_2_3
+    $angle:id104 @angle:type11 $atom:C_R_26 $atom:C_R_25 $atom:N_2_4
+    $angle:id105 @angle:type11 $atom:C_R_30 $atom:C_R_25 $atom:N_2_4
+    $angle:id106 @angle:type1 $atom:C_R_26 $atom:C_R_25 $atom:C_R_30
+    $angle:id107 @angle:type1 $atom:C_R_25 $atom:C_R_26 $atom:C_R_27
+    $angle:id108 @angle:type2 $atom:C_R_25 $atom:C_R_26 $atom:H__22
+    $angle:id109 @angle:type2 $atom:C_R_27 $atom:C_R_26 $atom:H__22
+    $angle:id110 @angle:type1 $atom:C_R_26 $atom:C_R_27 $atom:C_R_28
+    $angle:id111 @angle:type2 $atom:C_R_26 $atom:C_R_27 $atom:H__23
+    $angle:id112 @angle:type2 $atom:C_R_28 $atom:C_R_27 $atom:H__23
+    $angle:id113 @angle:type1 $atom:C_R_27 $atom:C_R_28 $atom:C_R_29
+    $angle:id114 @angle:type10 $atom:C_R_27 $atom:C_R_28 $atom:N_R_4
+    $angle:id115 @angle:type10 $atom:C_R_29 $atom:C_R_28 $atom:N_R_4
+    $angle:id116 @angle:type1 $atom:C_R_28 $atom:C_R_29 $atom:C_R_30
+    $angle:id117 @angle:type2 $atom:C_R_28 $atom:C_R_29 $atom:H__24
+    $angle:id118 @angle:type2 $atom:C_R_30 $atom:C_R_29 $atom:H__24
+    $angle:id119 @angle:type1 $atom:C_R_25 $atom:C_R_30 $atom:C_R_29
+    $angle:id120 @angle:type2 $atom:C_R_25 $atom:C_R_30 $atom:H__25
+    $angle:id121 @angle:type2 $atom:C_R_29 $atom:C_R_30 $atom:H__25
+    $angle:id122 @angle:type13 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3
+    $angle:id123 @angle:type13 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4
+    $angle:id124 @angle:type14 $atom:C_3_3 $atom:N_R_4 $atom:C_3_4
+    $angle:id125 @angle:type15 $atom:N_R_4 $atom:C_3_3 $atom:H__26
+    $angle:id126 @angle:type15 $atom:N_R_4 $atom:C_3_3 $atom:H__27
+    $angle:id127 @angle:type15 $atom:N_R_4 $atom:C_3_3 $atom:H__28
+    $angle:id128 @angle:type16 $atom:H__26 $atom:C_3_3 $atom:H__27
+    $angle:id129 @angle:type16 $atom:H__26 $atom:C_3_3 $atom:H__28
+    $angle:id130 @angle:type16 $atom:H__27 $atom:C_3_3 $atom:H__28
+    $angle:id131 @angle:type15 $atom:N_R_4 $atom:C_3_4 $atom:H__29
+    $angle:id132 @angle:type15 $atom:N_R_4 $atom:C_3_4 $atom:H__30
+    $angle:id133 @angle:type15 $atom:N_R_4 $atom:C_3_4 $atom:H__31
+    $angle:id134 @angle:type16 $atom:H__29 $atom:C_3_4 $atom:H__30
+    $angle:id135 @angle:type16 $atom:H__29 $atom:C_3_4 $atom:H__31
+    $angle:id136 @angle:type16 $atom:H__30 $atom:C_3_4 $atom:H__31
+    $angle:id137 @angle:type4 $atom:C_R_6 $atom:C_2_3 $atom:O_2_3
+    $angle:id138 @angle:type5 $atom:C_R_6 $atom:C_2_3 $atom:N_R_5
+    $angle:id139 @angle:type6 $atom:O_2_3 $atom:C_2_3 $atom:N_R_5
+    $angle:id140 @angle:type7 $atom:C_R_31 $atom:N_R_5 $atom:C_2_3
+    $angle:id141 @angle:type8 $atom:C_2_3 $atom:N_R_5 $atom:H___A_3
+    $angle:id142 @angle:type9 $atom:C_R_31 $atom:N_R_5 $atom:H___A_3
+    $angle:id143 @angle:type10 $atom:C_R_32 $atom:C_R_31 $atom:N_R_5
+    $angle:id144 @angle:type10 $atom:C_R_36 $atom:C_R_31 $atom:N_R_5
+    $angle:id145 @angle:type1 $atom:C_R_32 $atom:C_R_31 $atom:C_R_36
+    $angle:id146 @angle:type1 $atom:C_R_31 $atom:C_R_32 $atom:C_R_33
+    $angle:id147 @angle:type2 $atom:C_R_31 $atom:C_R_32 $atom:H__32
+    $angle:id148 @angle:type2 $atom:C_R_33 $atom:C_R_32 $atom:H__32
+    $angle:id149 @angle:type1 $atom:C_R_32 $atom:C_R_33 $atom:C_R_34
+    $angle:id150 @angle:type2 $atom:C_R_32 $atom:C_R_33 $atom:H__33
+    $angle:id151 @angle:type2 $atom:C_R_34 $atom:C_R_33 $atom:H__33
+    $angle:id152 @angle:type1 $atom:C_R_33 $atom:C_R_34 $atom:C_R_35
+    $angle:id153 @angle:type11 $atom:C_R_33 $atom:C_R_34 $atom:N_2_5
+    $angle:id154 @angle:type11 $atom:C_R_35 $atom:C_R_34 $atom:N_2_5
+    $angle:id155 @angle:type1 $atom:C_R_34 $atom:C_R_35 $atom:C_R_36
+    $angle:id156 @angle:type2 $atom:C_R_34 $atom:C_R_35 $atom:H__34
+    $angle:id157 @angle:type2 $atom:C_R_36 $atom:C_R_35 $atom:H__34
+    $angle:id158 @angle:type1 $atom:C_R_31 $atom:C_R_36 $atom:C_R_35
+    $angle:id159 @angle:type2 $atom:C_R_31 $atom:C_R_36 $atom:H__35
+    $angle:id160 @angle:type2 $atom:C_R_35 $atom:C_R_36 $atom:H__35
+    $angle:id161 @angle:type12 $atom:C_R_34 $atom:N_2_5 $atom:N_2_6
+    $angle:id162 @angle:type12 $atom:C_R_37 $atom:N_2_6 $atom:N_2_5
+    $angle:id163 @angle:type11 $atom:C_R_38 $atom:C_R_37 $atom:N_2_6
+    $angle:id164 @angle:type11 $atom:C_R_42 $atom:C_R_37 $atom:N_2_6
+    $angle:id165 @angle:type1 $atom:C_R_38 $atom:C_R_37 $atom:C_R_42
+    $angle:id166 @angle:type1 $atom:C_R_37 $atom:C_R_38 $atom:C_R_39
+    $angle:id167 @angle:type2 $atom:C_R_37 $atom:C_R_38 $atom:H__36
+    $angle:id168 @angle:type2 $atom:C_R_39 $atom:C_R_38 $atom:H__36
+    $angle:id169 @angle:type1 $atom:C_R_38 $atom:C_R_39 $atom:C_R_40
+    $angle:id170 @angle:type2 $atom:C_R_38 $atom:C_R_39 $atom:H__37
+    $angle:id171 @angle:type2 $atom:C_R_40 $atom:C_R_39 $atom:H__37
+    $angle:id172 @angle:type1 $atom:C_R_39 $atom:C_R_40 $atom:C_R_41
+    $angle:id173 @angle:type10 $atom:C_R_39 $atom:C_R_40 $atom:N_R_6
+    $angle:id174 @angle:type10 $atom:C_R_41 $atom:C_R_40 $atom:N_R_6
+    $angle:id175 @angle:type1 $atom:C_R_40 $atom:C_R_41 $atom:C_R_42
+    $angle:id176 @angle:type2 $atom:C_R_40 $atom:C_R_41 $atom:H__38
+    $angle:id177 @angle:type2 $atom:C_R_42 $atom:C_R_41 $atom:H__38
+    $angle:id178 @angle:type1 $atom:C_R_37 $atom:C_R_42 $atom:C_R_41
+    $angle:id179 @angle:type2 $atom:C_R_37 $atom:C_R_42 $atom:H__39
+    $angle:id180 @angle:type2 $atom:C_R_41 $atom:C_R_42 $atom:H__39
+    $angle:id181 @angle:type13 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5
+    $angle:id182 @angle:type13 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6
+    $angle:id183 @angle:type14 $atom:C_3_5 $atom:N_R_6 $atom:C_3_6
+    $angle:id184 @angle:type15 $atom:N_R_6 $atom:C_3_5 $atom:H__40
+    $angle:id185 @angle:type15 $atom:N_R_6 $atom:C_3_5 $atom:H__41
+    $angle:id186 @angle:type15 $atom:N_R_6 $atom:C_3_5 $atom:H__42
+    $angle:id187 @angle:type16 $atom:H__40 $atom:C_3_5 $atom:H__41
+    $angle:id188 @angle:type16 $atom:H__40 $atom:C_3_5 $atom:H__42
+    $angle:id189 @angle:type16 $atom:H__41 $atom:C_3_5 $atom:H__42
+    $angle:id190 @angle:type15 $atom:N_R_6 $atom:C_3_6 $atom:H__43
+    $angle:id191 @angle:type15 $atom:N_R_6 $atom:C_3_6 $atom:H__44
+    $angle:id192 @angle:type15 $atom:N_R_6 $atom:C_3_6 $atom:H__45
+    $angle:id193 @angle:type16 $atom:H__43 $atom:C_3_6 $atom:H__44
+    $angle:id194 @angle:type16 $atom:H__43 $atom:C_3_6 $atom:H__45
+    $angle:id195 @angle:type16 $atom:H__44 $atom:C_3_6 $atom:H__45
+  }
+
+  write("Data Dihedrals") {
+    $dihedral:id1 @dihedral:type1 $atom:C_R_6 $atom:C_R_1 $atom:C_R_2 $atom:C_R_3
+    $dihedral:id2 @dihedral:type2 $atom:C_R_6 $atom:C_R_1 $atom:C_R_2 $atom:C_2_2
+    $dihedral:id3 @dihedral:type3 $atom:C_R_3 $atom:C_R_2 $atom:C_R_1 $atom:H__1
+    $dihedral:id4 @dihedral:type4 $atom:C_2_2 $atom:C_R_2 $atom:C_R_1 $atom:H__1
+    $dihedral:id5 @dihedral:type1 $atom:C_R_2 $atom:C_R_1 $atom:C_R_6 $atom:C_R_5
+    $dihedral:id6 @dihedral:type2 $atom:C_R_2 $atom:C_R_1 $atom:C_R_6 $atom:C_2_3
+    $dihedral:id7 @dihedral:type3 $atom:C_R_5 $atom:C_R_6 $atom:C_R_1 $atom:H__1
+    $dihedral:id8 @dihedral:type4 $atom:C_2_3 $atom:C_R_6 $atom:C_R_1 $atom:H__1
+    $dihedral:id9 @dihedral:type1 $atom:C_R_1 $atom:C_R_2 $atom:C_R_3 $atom:C_R_4
+    $dihedral:id10 @dihedral:type3 $atom:C_R_1 $atom:C_R_2 $atom:C_R_3 $atom:H__2
+    $dihedral:id11 @dihedral:type2 $atom:C_R_4 $atom:C_R_3 $atom:C_R_2 $atom:C_2_2
+    $dihedral:id12 @dihedral:type4 $atom:C_2_2 $atom:C_R_2 $atom:C_R_3 $atom:H__2
+    $dihedral:id13 @dihedral:type5 $atom:C_R_1 $atom:C_R_2 $atom:C_2_2 $atom:O_2_2
+    $dihedral:id14 @dihedral:type6 $atom:C_R_1 $atom:C_R_2 $atom:C_2_2 $atom:N_R_3
+    $dihedral:id15 @dihedral:type5 $atom:C_R_3 $atom:C_R_2 $atom:C_2_2 $atom:O_2_2
+    $dihedral:id16 @dihedral:type6 $atom:C_R_3 $atom:C_R_2 $atom:C_2_2 $atom:N_R_3
+    $dihedral:id17 @dihedral:type1 $atom:C_R_2 $atom:C_R_3 $atom:C_R_4 $atom:C_R_5
+    $dihedral:id18 @dihedral:type2 $atom:C_R_2 $atom:C_R_3 $atom:C_R_4 $atom:C_2_1
+    $dihedral:id19 @dihedral:type3 $atom:C_R_5 $atom:C_R_4 $atom:C_R_3 $atom:H__2
+    $dihedral:id20 @dihedral:type4 $atom:C_2_1 $atom:C_R_4 $atom:C_R_3 $atom:H__2
+    $dihedral:id21 @dihedral:type1 $atom:C_R_3 $atom:C_R_4 $atom:C_R_5 $atom:C_R_6
+    $dihedral:id22 @dihedral:type3 $atom:C_R_3 $atom:C_R_4 $atom:C_R_5 $atom:H__3
+    $dihedral:id23 @dihedral:type2 $atom:C_R_6 $atom:C_R_5 $atom:C_R_4 $atom:C_2_1
+    $dihedral:id24 @dihedral:type4 $atom:C_2_1 $atom:C_R_4 $atom:C_R_5 $atom:H__3
+    $dihedral:id25 @dihedral:type5 $atom:C_R_3 $atom:C_R_4 $atom:C_2_1 $atom:O_2_1
+    $dihedral:id26 @dihedral:type6 $atom:C_R_3 $atom:C_R_4 $atom:C_2_1 $atom:N_R_1
+    $dihedral:id27 @dihedral:type5 $atom:C_R_5 $atom:C_R_4 $atom:C_2_1 $atom:O_2_1
+    $dihedral:id28 @dihedral:type6 $atom:C_R_5 $atom:C_R_4 $atom:C_2_1 $atom:N_R_1
+    $dihedral:id29 @dihedral:type1 $atom:C_R_4 $atom:C_R_5 $atom:C_R_6 $atom:C_R_1
+    $dihedral:id30 @dihedral:type2 $atom:C_R_4 $atom:C_R_5 $atom:C_R_6 $atom:C_2_3
+    $dihedral:id31 @dihedral:type3 $atom:C_R_1 $atom:C_R_6 $atom:C_R_5 $atom:H__3
+    $dihedral:id32 @dihedral:type4 $atom:C_2_3 $atom:C_R_6 $atom:C_R_5 $atom:H__3
+    $dihedral:id33 @dihedral:type5 $atom:C_R_1 $atom:C_R_6 $atom:C_2_3 $atom:O_2_3
+    $dihedral:id34 @dihedral:type6 $atom:C_R_1 $atom:C_R_6 $atom:C_2_3 $atom:N_R_5
+    $dihedral:id35 @dihedral:type5 $atom:C_R_5 $atom:C_R_6 $atom:C_2_3 $atom:O_2_3
+    $dihedral:id36 @dihedral:type6 $atom:C_R_5 $atom:C_R_6 $atom:C_2_3 $atom:N_R_5
+    $dihedral:id37 @dihedral:type7 $atom:C_R_4 $atom:C_2_1 $atom:N_R_1 $atom:C_R_7
+    $dihedral:id38 @dihedral:type8 $atom:C_R_4 $atom:C_2_1 $atom:N_R_1 $atom:H___A_1
+    $dihedral:id39 @dihedral:type9 $atom:O_2_1 $atom:C_2_1 $atom:N_R_1 $atom:C_R_7
+    $dihedral:id40 @dihedral:type10 $atom:O_2_1 $atom:C_2_1 $atom:N_R_1 $atom:H___A_1
+    $dihedral:id41 @dihedral:type11 $atom:C_R_8 $atom:C_R_7 $atom:N_R_1 $atom:C_2_1
+    $dihedral:id42 @dihedral:type11 $atom:C_R_12 $atom:C_R_7 $atom:N_R_1 $atom:C_2_1
+    $dihedral:id43 @dihedral:type12 $atom:C_R_8 $atom:C_R_7 $atom:N_R_1 $atom:H___A_1
+    $dihedral:id44 @dihedral:type12 $atom:C_R_12 $atom:C_R_7 $atom:N_R_1 $atom:H___A_1
+    $dihedral:id45 @dihedral:type13 $atom:C_R_9 $atom:C_R_8 $atom:C_R_7 $atom:N_R_1
+    $dihedral:id46 @dihedral:type14 $atom:N_R_1 $atom:C_R_7 $atom:C_R_8 $atom:H__4
+    $dihedral:id47 @dihedral:type1 $atom:C_R_12 $atom:C_R_7 $atom:C_R_8 $atom:C_R_9
+    $dihedral:id48 @dihedral:type3 $atom:C_R_12 $atom:C_R_7 $atom:C_R_8 $atom:H__4
+    $dihedral:id49 @dihedral:type13 $atom:C_R_11 $atom:C_R_12 $atom:C_R_7 $atom:N_R_1
+    $dihedral:id50 @dihedral:type14 $atom:N_R_1 $atom:C_R_7 $atom:C_R_12 $atom:H__7
+    $dihedral:id51 @dihedral:type1 $atom:C_R_8 $atom:C_R_7 $atom:C_R_12 $atom:C_R_11
+    $dihedral:id52 @dihedral:type3 $atom:C_R_8 $atom:C_R_7 $atom:C_R_12 $atom:H__7
+    $dihedral:id53 @dihedral:type1 $atom:C_R_7 $atom:C_R_8 $atom:C_R_9 $atom:C_R_10
+    $dihedral:id54 @dihedral:type3 $atom:C_R_7 $atom:C_R_8 $atom:C_R_9 $atom:H__5
+    $dihedral:id55 @dihedral:type3 $atom:C_R_10 $atom:C_R_9 $atom:C_R_8 $atom:H__4
+    $dihedral:id56 @dihedral:type15 $atom:H__4 $atom:C_R_8 $atom:C_R_9 $atom:H__5
+    $dihedral:id57 @dihedral:type1 $atom:C_R_8 $atom:C_R_9 $atom:C_R_10 $atom:C_R_11
+    $dihedral:id58 @dihedral:type16 $atom:C_R_8 $atom:C_R_9 $atom:C_R_10 $atom:N_2_1
+    $dihedral:id59 @dihedral:type3 $atom:C_R_11 $atom:C_R_10 $atom:C_R_9 $atom:H__5
+    $dihedral:id60 @dihedral:type17 $atom:N_2_1 $atom:C_R_10 $atom:C_R_9 $atom:H__5
+    $dihedral:id61 @dihedral:type1 $atom:C_R_9 $atom:C_R_10 $atom:C_R_11 $atom:C_R_12
+    $dihedral:id62 @dihedral:type3 $atom:C_R_9 $atom:C_R_10 $atom:C_R_11 $atom:H__6
+    $dihedral:id63 @dihedral:type16 $atom:C_R_12 $atom:C_R_11 $atom:C_R_10 $atom:N_2_1
+    $dihedral:id64 @dihedral:type17 $atom:N_2_1 $atom:C_R_10 $atom:C_R_11 $atom:H__6
+    $dihedral:id65 @dihedral:type18 $atom:C_R_9 $atom:C_R_10 $atom:N_2_1 $atom:N_2_2
+    $dihedral:id66 @dihedral:type18 $atom:C_R_11 $atom:C_R_10 $atom:N_2_1 $atom:N_2_2
+    $dihedral:id67 @dihedral:type1 $atom:C_R_10 $atom:C_R_11 $atom:C_R_12 $atom:C_R_7
+    $dihedral:id68 @dihedral:type3 $atom:C_R_10 $atom:C_R_11 $atom:C_R_12 $atom:H__7
+    $dihedral:id69 @dihedral:type3 $atom:C_R_7 $atom:C_R_12 $atom:C_R_11 $atom:H__6
+    $dihedral:id70 @dihedral:type15 $atom:H__6 $atom:C_R_11 $atom:C_R_12 $atom:H__7
+    $dihedral:id71 @dihedral:type19 $atom:C_R_10 $atom:N_2_1 $atom:N_2_2 $atom:C_R_13
+    $dihedral:id72 @dihedral:type18 $atom:C_R_14 $atom:C_R_13 $atom:N_2_2 $atom:N_2_1
+    $dihedral:id73 @dihedral:type18 $atom:C_R_18 $atom:C_R_13 $atom:N_2_2 $atom:N_2_1
+    $dihedral:id74 @dihedral:type16 $atom:C_R_15 $atom:C_R_14 $atom:C_R_13 $atom:N_2_2
+    $dihedral:id75 @dihedral:type17 $atom:N_2_2 $atom:C_R_13 $atom:C_R_14 $atom:H__8
+    $dihedral:id76 @dihedral:type1 $atom:C_R_18 $atom:C_R_13 $atom:C_R_14 $atom:C_R_15
+    $dihedral:id77 @dihedral:type3 $atom:C_R_18 $atom:C_R_13 $atom:C_R_14 $atom:H__8
+    $dihedral:id78 @dihedral:type16 $atom:C_R_17 $atom:C_R_18 $atom:C_R_13 $atom:N_2_2
+    $dihedral:id79 @dihedral:type17 $atom:N_2_2 $atom:C_R_13 $atom:C_R_18 $atom:H__11
+    $dihedral:id80 @dihedral:type1 $atom:C_R_14 $atom:C_R_13 $atom:C_R_18 $atom:C_R_17
+    $dihedral:id81 @dihedral:type3 $atom:C_R_14 $atom:C_R_13 $atom:C_R_18 $atom:H__11
+    $dihedral:id82 @dihedral:type1 $atom:C_R_13 $atom:C_R_14 $atom:C_R_15 $atom:C_R_16
+    $dihedral:id83 @dihedral:type3 $atom:C_R_13 $atom:C_R_14 $atom:C_R_15 $atom:H__9
+    $dihedral:id84 @dihedral:type3 $atom:C_R_16 $atom:C_R_15 $atom:C_R_14 $atom:H__8
+    $dihedral:id85 @dihedral:type15 $atom:H__8 $atom:C_R_14 $atom:C_R_15 $atom:H__9
+    $dihedral:id86 @dihedral:type1 $atom:C_R_14 $atom:C_R_15 $atom:C_R_16 $atom:C_R_17
+    $dihedral:id87 @dihedral:type13 $atom:C_R_14 $atom:C_R_15 $atom:C_R_16 $atom:N_R_2
+    $dihedral:id88 @dihedral:type3 $atom:C_R_17 $atom:C_R_16 $atom:C_R_15 $atom:H__9
+    $dihedral:id89 @dihedral:type14 $atom:N_R_2 $atom:C_R_16 $atom:C_R_15 $atom:H__9
+    $dihedral:id90 @dihedral:type1 $atom:C_R_15 $atom:C_R_16 $atom:C_R_17 $atom:C_R_18
+    $dihedral:id91 @dihedral:type3 $atom:C_R_15 $atom:C_R_16 $atom:C_R_17 $atom:H__10
+    $dihedral:id92 @dihedral:type13 $atom:C_R_18 $atom:C_R_17 $atom:C_R_16 $atom:N_R_2
+    $dihedral:id93 @dihedral:type14 $atom:N_R_2 $atom:C_R_16 $atom:C_R_17 $atom:H__10
+    $dihedral:id94 @dihedral:type20 $atom:C_R_15 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1
+    $dihedral:id95 @dihedral:type20 $atom:C_R_15 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2
+    $dihedral:id96 @dihedral:type20 $atom:C_R_17 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1
+    $dihedral:id97 @dihedral:type20 $atom:C_R_17 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2
+    $dihedral:id98 @dihedral:type1 $atom:C_R_16 $atom:C_R_17 $atom:C_R_18 $atom:C_R_13
+    $dihedral:id99 @dihedral:type3 $atom:C_R_16 $atom:C_R_17 $atom:C_R_18 $atom:H__11
+    $dihedral:id100 @dihedral:type3 $atom:C_R_13 $atom:C_R_18 $atom:C_R_17 $atom:H__10
+    $dihedral:id101 @dihedral:type15 $atom:H__10 $atom:C_R_17 $atom:C_R_18 $atom:H__11
+    $dihedral:id102 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1 $atom:H__12
+    $dihedral:id103 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1 $atom:H__13
+    $dihedral:id104 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_1 $atom:H__14
+    $dihedral:id105 @dihedral:type22 $atom:C_3_2 $atom:N_R_2 $atom:C_3_1 $atom:H__12
+    $dihedral:id106 @dihedral:type22 $atom:C_3_2 $atom:N_R_2 $atom:C_3_1 $atom:H__13
+    $dihedral:id107 @dihedral:type22 $atom:C_3_2 $atom:N_R_2 $atom:C_3_1 $atom:H__14
+    $dihedral:id108 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2 $atom:H__15
+    $dihedral:id109 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2 $atom:H__16
+    $dihedral:id110 @dihedral:type21 $atom:C_R_16 $atom:N_R_2 $atom:C_3_2 $atom:H__17
+    $dihedral:id111 @dihedral:type22 $atom:C_3_1 $atom:N_R_2 $atom:C_3_2 $atom:H__15
+    $dihedral:id112 @dihedral:type22 $atom:C_3_1 $atom:N_R_2 $atom:C_3_2 $atom:H__16
+    $dihedral:id113 @dihedral:type22 $atom:C_3_1 $atom:N_R_2 $atom:C_3_2 $atom:H__17
+    $dihedral:id114 @dihedral:type7 $atom:C_R_2 $atom:C_2_2 $atom:N_R_3 $atom:C_R_19
+    $dihedral:id115 @dihedral:type8 $atom:C_R_2 $atom:C_2_2 $atom:N_R_3 $atom:H___A_2
+    $dihedral:id116 @dihedral:type9 $atom:O_2_2 $atom:C_2_2 $atom:N_R_3 $atom:C_R_19
+    $dihedral:id117 @dihedral:type10 $atom:O_2_2 $atom:C_2_2 $atom:N_R_3 $atom:H___A_2
+    $dihedral:id118 @dihedral:type11 $atom:C_R_20 $atom:C_R_19 $atom:N_R_3 $atom:C_2_2
+    $dihedral:id119 @dihedral:type11 $atom:C_R_24 $atom:C_R_19 $atom:N_R_3 $atom:C_2_2
+    $dihedral:id120 @dihedral:type12 $atom:C_R_20 $atom:C_R_19 $atom:N_R_3 $atom:H___A_2
+    $dihedral:id121 @dihedral:type12 $atom:C_R_24 $atom:C_R_19 $atom:N_R_3 $atom:H___A_2
+    $dihedral:id122 @dihedral:type13 $atom:C_R_21 $atom:C_R_20 $atom:C_R_19 $atom:N_R_3
+    $dihedral:id123 @dihedral:type14 $atom:N_R_3 $atom:C_R_19 $atom:C_R_20 $atom:H__18
+    $dihedral:id124 @dihedral:type1 $atom:C_R_24 $atom:C_R_19 $atom:C_R_20 $atom:C_R_21
+    $dihedral:id125 @dihedral:type3 $atom:C_R_24 $atom:C_R_19 $atom:C_R_20 $atom:H__18
+    $dihedral:id126 @dihedral:type13 $atom:C_R_23 $atom:C_R_24 $atom:C_R_19 $atom:N_R_3
+    $dihedral:id127 @dihedral:type14 $atom:N_R_3 $atom:C_R_19 $atom:C_R_24 $atom:H__21
+    $dihedral:id128 @dihedral:type1 $atom:C_R_20 $atom:C_R_19 $atom:C_R_24 $atom:C_R_23
+    $dihedral:id129 @dihedral:type3 $atom:C_R_20 $atom:C_R_19 $atom:C_R_24 $atom:H__21
+    $dihedral:id130 @dihedral:type1 $atom:C_R_19 $atom:C_R_20 $atom:C_R_21 $atom:C_R_22
+    $dihedral:id131 @dihedral:type3 $atom:C_R_19 $atom:C_R_20 $atom:C_R_21 $atom:H__19
+    $dihedral:id132 @dihedral:type3 $atom:C_R_22 $atom:C_R_21 $atom:C_R_20 $atom:H__18
+    $dihedral:id133 @dihedral:type15 $atom:H__18 $atom:C_R_20 $atom:C_R_21 $atom:H__19
+    $dihedral:id134 @dihedral:type1 $atom:C_R_20 $atom:C_R_21 $atom:C_R_22 $atom:C_R_23
+    $dihedral:id135 @dihedral:type16 $atom:C_R_20 $atom:C_R_21 $atom:C_R_22 $atom:N_2_3
+    $dihedral:id136 @dihedral:type3 $atom:C_R_23 $atom:C_R_22 $atom:C_R_21 $atom:H__19
+    $dihedral:id137 @dihedral:type17 $atom:N_2_3 $atom:C_R_22 $atom:C_R_21 $atom:H__19
+    $dihedral:id138 @dihedral:type1 $atom:C_R_21 $atom:C_R_22 $atom:C_R_23 $atom:C_R_24
+    $dihedral:id139 @dihedral:type3 $atom:C_R_21 $atom:C_R_22 $atom:C_R_23 $atom:H__20
+    $dihedral:id140 @dihedral:type16 $atom:C_R_24 $atom:C_R_23 $atom:C_R_22 $atom:N_2_3
+    $dihedral:id141 @dihedral:type17 $atom:N_2_3 $atom:C_R_22 $atom:C_R_23 $atom:H__20
+    $dihedral:id142 @dihedral:type18 $atom:C_R_21 $atom:C_R_22 $atom:N_2_3 $atom:N_2_4
+    $dihedral:id143 @dihedral:type18 $atom:C_R_23 $atom:C_R_22 $atom:N_2_3 $atom:N_2_4
+    $dihedral:id144 @dihedral:type1 $atom:C_R_22 $atom:C_R_23 $atom:C_R_24 $atom:C_R_19
+    $dihedral:id145 @dihedral:type3 $atom:C_R_22 $atom:C_R_23 $atom:C_R_24 $atom:H__21
+    $dihedral:id146 @dihedral:type3 $atom:C_R_19 $atom:C_R_24 $atom:C_R_23 $atom:H__20
+    $dihedral:id147 @dihedral:type15 $atom:H__20 $atom:C_R_23 $atom:C_R_24 $atom:H__21
+    $dihedral:id148 @dihedral:type19 $atom:C_R_22 $atom:N_2_3 $atom:N_2_4 $atom:C_R_25
+    $dihedral:id149 @dihedral:type18 $atom:C_R_26 $atom:C_R_25 $atom:N_2_4 $atom:N_2_3
+    $dihedral:id150 @dihedral:type18 $atom:C_R_30 $atom:C_R_25 $atom:N_2_4 $atom:N_2_3
+    $dihedral:id151 @dihedral:type16 $atom:C_R_27 $atom:C_R_26 $atom:C_R_25 $atom:N_2_4
+    $dihedral:id152 @dihedral:type17 $atom:N_2_4 $atom:C_R_25 $atom:C_R_26 $atom:H__22
+    $dihedral:id153 @dihedral:type1 $atom:C_R_30 $atom:C_R_25 $atom:C_R_26 $atom:C_R_27
+    $dihedral:id154 @dihedral:type3 $atom:C_R_30 $atom:C_R_25 $atom:C_R_26 $atom:H__22
+    $dihedral:id155 @dihedral:type16 $atom:C_R_29 $atom:C_R_30 $atom:C_R_25 $atom:N_2_4
+    $dihedral:id156 @dihedral:type17 $atom:N_2_4 $atom:C_R_25 $atom:C_R_30 $atom:H__25
+    $dihedral:id157 @dihedral:type1 $atom:C_R_26 $atom:C_R_25 $atom:C_R_30 $atom:C_R_29
+    $dihedral:id158 @dihedral:type3 $atom:C_R_26 $atom:C_R_25 $atom:C_R_30 $atom:H__25
+    $dihedral:id159 @dihedral:type1 $atom:C_R_25 $atom:C_R_26 $atom:C_R_27 $atom:C_R_28
+    $dihedral:id160 @dihedral:type3 $atom:C_R_25 $atom:C_R_26 $atom:C_R_27 $atom:H__23
+    $dihedral:id161 @dihedral:type3 $atom:C_R_28 $atom:C_R_27 $atom:C_R_26 $atom:H__22
+    $dihedral:id162 @dihedral:type15 $atom:H__22 $atom:C_R_26 $atom:C_R_27 $atom:H__23
+    $dihedral:id163 @dihedral:type1 $atom:C_R_26 $atom:C_R_27 $atom:C_R_28 $atom:C_R_29
+    $dihedral:id164 @dihedral:type13 $atom:C_R_26 $atom:C_R_27 $atom:C_R_28 $atom:N_R_4
+    $dihedral:id165 @dihedral:type3 $atom:C_R_29 $atom:C_R_28 $atom:C_R_27 $atom:H__23
+    $dihedral:id166 @dihedral:type14 $atom:N_R_4 $atom:C_R_28 $atom:C_R_27 $atom:H__23
+    $dihedral:id167 @dihedral:type1 $atom:C_R_27 $atom:C_R_28 $atom:C_R_29 $atom:C_R_30
+    $dihedral:id168 @dihedral:type3 $atom:C_R_27 $atom:C_R_28 $atom:C_R_29 $atom:H__24
+    $dihedral:id169 @dihedral:type13 $atom:C_R_30 $atom:C_R_29 $atom:C_R_28 $atom:N_R_4
+    $dihedral:id170 @dihedral:type14 $atom:N_R_4 $atom:C_R_28 $atom:C_R_29 $atom:H__24
+    $dihedral:id171 @dihedral:type20 $atom:C_R_27 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3
+    $dihedral:id172 @dihedral:type20 $atom:C_R_27 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4
+    $dihedral:id173 @dihedral:type20 $atom:C_R_29 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3
+    $dihedral:id174 @dihedral:type20 $atom:C_R_29 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4
+    $dihedral:id175 @dihedral:type1 $atom:C_R_28 $atom:C_R_29 $atom:C_R_30 $atom:C_R_25
+    $dihedral:id176 @dihedral:type3 $atom:C_R_28 $atom:C_R_29 $atom:C_R_30 $atom:H__25
+    $dihedral:id177 @dihedral:type3 $atom:C_R_25 $atom:C_R_30 $atom:C_R_29 $atom:H__24
+    $dihedral:id178 @dihedral:type15 $atom:H__24 $atom:C_R_29 $atom:C_R_30 $atom:H__25
+    $dihedral:id179 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3 $atom:H__26
+    $dihedral:id180 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3 $atom:H__27
+    $dihedral:id181 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_3 $atom:H__28
+    $dihedral:id182 @dihedral:type22 $atom:C_3_4 $atom:N_R_4 $atom:C_3_3 $atom:H__26
+    $dihedral:id183 @dihedral:type22 $atom:C_3_4 $atom:N_R_4 $atom:C_3_3 $atom:H__27
+    $dihedral:id184 @dihedral:type22 $atom:C_3_4 $atom:N_R_4 $atom:C_3_3 $atom:H__28
+    $dihedral:id185 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4 $atom:H__29
+    $dihedral:id186 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4 $atom:H__30
+    $dihedral:id187 @dihedral:type21 $atom:C_R_28 $atom:N_R_4 $atom:C_3_4 $atom:H__31
+    $dihedral:id188 @dihedral:type22 $atom:C_3_3 $atom:N_R_4 $atom:C_3_4 $atom:H__29
+    $dihedral:id189 @dihedral:type22 $atom:C_3_3 $atom:N_R_4 $atom:C_3_4 $atom:H__30
+    $dihedral:id190 @dihedral:type22 $atom:C_3_3 $atom:N_R_4 $atom:C_3_4 $atom:H__31
+    $dihedral:id191 @dihedral:type7 $atom:C_R_6 $atom:C_2_3 $atom:N_R_5 $atom:C_R_31
+    $dihedral:id192 @dihedral:type8 $atom:C_R_6 $atom:C_2_3 $atom:N_R_5 $atom:H___A_3
+    $dihedral:id193 @dihedral:type9 $atom:O_2_3 $atom:C_2_3 $atom:N_R_5 $atom:C_R_31
+    $dihedral:id194 @dihedral:type10 $atom:O_2_3 $atom:C_2_3 $atom:N_R_5 $atom:H___A_3
+    $dihedral:id195 @dihedral:type11 $atom:C_R_32 $atom:C_R_31 $atom:N_R_5 $atom:C_2_3
+    $dihedral:id196 @dihedral:type11 $atom:C_R_36 $atom:C_R_31 $atom:N_R_5 $atom:C_2_3
+    $dihedral:id197 @dihedral:type12 $atom:C_R_32 $atom:C_R_31 $atom:N_R_5 $atom:H___A_3
+    $dihedral:id198 @dihedral:type12 $atom:C_R_36 $atom:C_R_31 $atom:N_R_5 $atom:H___A_3
+    $dihedral:id199 @dihedral:type13 $atom:C_R_33 $atom:C_R_32 $atom:C_R_31 $atom:N_R_5
+    $dihedral:id200 @dihedral:type14 $atom:N_R_5 $atom:C_R_31 $atom:C_R_32 $atom:H__32
+    $dihedral:id201 @dihedral:type1 $atom:C_R_36 $atom:C_R_31 $atom:C_R_32 $atom:C_R_33
+    $dihedral:id202 @dihedral:type3 $atom:C_R_36 $atom:C_R_31 $atom:C_R_32 $atom:H__32
+    $dihedral:id203 @dihedral:type13 $atom:C_R_35 $atom:C_R_36 $atom:C_R_31 $atom:N_R_5
+    $dihedral:id204 @dihedral:type14 $atom:N_R_5 $atom:C_R_31 $atom:C_R_36 $atom:H__35
+    $dihedral:id205 @dihedral:type1 $atom:C_R_32 $atom:C_R_31 $atom:C_R_36 $atom:C_R_35
+    $dihedral:id206 @dihedral:type3 $atom:C_R_32 $atom:C_R_31 $atom:C_R_36 $atom:H__35
+    $dihedral:id207 @dihedral:type1 $atom:C_R_31 $atom:C_R_32 $atom:C_R_33 $atom:C_R_34
+    $dihedral:id208 @dihedral:type3 $atom:C_R_31 $atom:C_R_32 $atom:C_R_33 $atom:H__33
+    $dihedral:id209 @dihedral:type3 $atom:C_R_34 $atom:C_R_33 $atom:C_R_32 $atom:H__32
+    $dihedral:id210 @dihedral:type15 $atom:H__32 $atom:C_R_32 $atom:C_R_33 $atom:H__33
+    $dihedral:id211 @dihedral:type1 $atom:C_R_32 $atom:C_R_33 $atom:C_R_34 $atom:C_R_35
+    $dihedral:id212 @dihedral:type16 $atom:C_R_32 $atom:C_R_33 $atom:C_R_34 $atom:N_2_5
+    $dihedral:id213 @dihedral:type3 $atom:C_R_35 $atom:C_R_34 $atom:C_R_33 $atom:H__33
+    $dihedral:id214 @dihedral:type17 $atom:N_2_5 $atom:C_R_34 $atom:C_R_33 $atom:H__33
+    $dihedral:id215 @dihedral:type1 $atom:C_R_33 $atom:C_R_34 $atom:C_R_35 $atom:C_R_36
+    $dihedral:id216 @dihedral:type3 $atom:C_R_33 $atom:C_R_34 $atom:C_R_35 $atom:H__34
+    $dihedral:id217 @dihedral:type16 $atom:C_R_36 $atom:C_R_35 $atom:C_R_34 $atom:N_2_5
+    $dihedral:id218 @dihedral:type17 $atom:N_2_5 $atom:C_R_34 $atom:C_R_35 $atom:H__34
+    $dihedral:id219 @dihedral:type18 $atom:C_R_33 $atom:C_R_34 $atom:N_2_5 $atom:N_2_6
+    $dihedral:id220 @dihedral:type18 $atom:C_R_35 $atom:C_R_34 $atom:N_2_5 $atom:N_2_6
+    $dihedral:id221 @dihedral:type1 $atom:C_R_34 $atom:C_R_35 $atom:C_R_36 $atom:C_R_31
+    $dihedral:id222 @dihedral:type3 $atom:C_R_34 $atom:C_R_35 $atom:C_R_36 $atom:H__35
+    $dihedral:id223 @dihedral:type3 $atom:C_R_31 $atom:C_R_36 $atom:C_R_35 $atom:H__34
+    $dihedral:id224 @dihedral:type15 $atom:H__34 $atom:C_R_35 $atom:C_R_36 $atom:H__35
+    $dihedral:id225 @dihedral:type19 $atom:C_R_34 $atom:N_2_5 $atom:N_2_6 $atom:C_R_37
+    $dihedral:id226 @dihedral:type18 $atom:C_R_38 $atom:C_R_37 $atom:N_2_6 $atom:N_2_5
+    $dihedral:id227 @dihedral:type18 $atom:C_R_42 $atom:C_R_37 $atom:N_2_6 $atom:N_2_5
+    $dihedral:id228 @dihedral:type16 $atom:C_R_39 $atom:C_R_38 $atom:C_R_37 $atom:N_2_6
+    $dihedral:id229 @dihedral:type17 $atom:N_2_6 $atom:C_R_37 $atom:C_R_38 $atom:H__36
+    $dihedral:id230 @dihedral:type1 $atom:C_R_42 $atom:C_R_37 $atom:C_R_38 $atom:C_R_39
+    $dihedral:id231 @dihedral:type3 $atom:C_R_42 $atom:C_R_37 $atom:C_R_38 $atom:H__36
+    $dihedral:id232 @dihedral:type16 $atom:C_R_41 $atom:C_R_42 $atom:C_R_37 $atom:N_2_6
+    $dihedral:id233 @dihedral:type17 $atom:N_2_6 $atom:C_R_37 $atom:C_R_42 $atom:H__39
+    $dihedral:id234 @dihedral:type1 $atom:C_R_38 $atom:C_R_37 $atom:C_R_42 $atom:C_R_41
+    $dihedral:id235 @dihedral:type3 $atom:C_R_38 $atom:C_R_37 $atom:C_R_42 $atom:H__39
+    $dihedral:id236 @dihedral:type1 $atom:C_R_37 $atom:C_R_38 $atom:C_R_39 $atom:C_R_40
+    $dihedral:id237 @dihedral:type3 $atom:C_R_37 $atom:C_R_38 $atom:C_R_39 $atom:H__37
+    $dihedral:id238 @dihedral:type3 $atom:C_R_40 $atom:C_R_39 $atom:C_R_38 $atom:H__36
+    $dihedral:id239 @dihedral:type15 $atom:H__36 $atom:C_R_38 $atom:C_R_39 $atom:H__37
+    $dihedral:id240 @dihedral:type1 $atom:C_R_38 $atom:C_R_39 $atom:C_R_40 $atom:C_R_41
+    $dihedral:id241 @dihedral:type13 $atom:C_R_38 $atom:C_R_39 $atom:C_R_40 $atom:N_R_6
+    $dihedral:id242 @dihedral:type3 $atom:C_R_41 $atom:C_R_40 $atom:C_R_39 $atom:H__37
+    $dihedral:id243 @dihedral:type14 $atom:N_R_6 $atom:C_R_40 $atom:C_R_39 $atom:H__37
+    $dihedral:id244 @dihedral:type1 $atom:C_R_39 $atom:C_R_40 $atom:C_R_41 $atom:C_R_42
+    $dihedral:id245 @dihedral:type3 $atom:C_R_39 $atom:C_R_40 $atom:C_R_41 $atom:H__38
+    $dihedral:id246 @dihedral:type13 $atom:C_R_42 $atom:C_R_41 $atom:C_R_40 $atom:N_R_6
+    $dihedral:id247 @dihedral:type14 $atom:N_R_6 $atom:C_R_40 $atom:C_R_41 $atom:H__38
+    $dihedral:id248 @dihedral:type20 $atom:C_R_39 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5
+    $dihedral:id249 @dihedral:type20 $atom:C_R_39 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6
+    $dihedral:id250 @dihedral:type20 $atom:C_R_41 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5
+    $dihedral:id251 @dihedral:type20 $atom:C_R_41 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6
+    $dihedral:id252 @dihedral:type1 $atom:C_R_40 $atom:C_R_41 $atom:C_R_42 $atom:C_R_37
+    $dihedral:id253 @dihedral:type3 $atom:C_R_40 $atom:C_R_41 $atom:C_R_42 $atom:H__39
+    $dihedral:id254 @dihedral:type3 $atom:C_R_37 $atom:C_R_42 $atom:C_R_41 $atom:H__38
+    $dihedral:id255 @dihedral:type15 $atom:H__38 $atom:C_R_41 $atom:C_R_42 $atom:H__39
+    $dihedral:id256 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5 $atom:H__40
+    $dihedral:id257 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5 $atom:H__41
+    $dihedral:id258 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_5 $atom:H__42
+    $dihedral:id259 @dihedral:type22 $atom:C_3_6 $atom:N_R_6 $atom:C_3_5 $atom:H__40
+    $dihedral:id260 @dihedral:type22 $atom:C_3_6 $atom:N_R_6 $atom:C_3_5 $atom:H__41
+    $dihedral:id261 @dihedral:type22 $atom:C_3_6 $atom:N_R_6 $atom:C_3_5 $atom:H__42
+    $dihedral:id262 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6 $atom:H__43
+    $dihedral:id263 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6 $atom:H__44
+    $dihedral:id264 @dihedral:type21 $atom:C_R_40 $atom:N_R_6 $atom:C_3_6 $atom:H__45
+    $dihedral:id265 @dihedral:type22 $atom:C_3_5 $atom:N_R_6 $atom:C_3_6 $atom:H__43
+    $dihedral:id266 @dihedral:type22 $atom:C_3_5 $atom:N_R_6 $atom:C_3_6 $atom:H__44
+    $dihedral:id267 @dihedral:type22 $atom:C_3_5 $atom:N_R_6 $atom:C_3_6 $atom:H__45
+  }
+
+  write("Data Impropers") {
+    $improper:id1 @improper:type1 $atom:C_R_1 $atom:C_R_2 $atom:C_R_6 $atom:H__1
+    $improper:id2 @improper:type2 $atom:C_R_2 $atom:C_R_1 $atom:C_R_3 $atom:C_2_2
+    $improper:id3 @improper:type1 $atom:C_R_3 $atom:C_R_2 $atom:C_R_4 $atom:H__2
+    $improper:id4 @improper:type2 $atom:C_R_4 $atom:C_R_3 $atom:C_R_5 $atom:C_2_1
+    $improper:id5 @improper:type1 $atom:C_R_5 $atom:C_R_4 $atom:C_R_6 $atom:H__3
+    $improper:id6 @improper:type2 $atom:C_R_6 $atom:C_R_1 $atom:C_R_5 $atom:C_2_3
+    $improper:id7 @improper:type3 $atom:C_2_1 $atom:C_R_4 $atom:O_2_1 $atom:N_R_1
+    $improper:id8 @improper:type4 $atom:N_R_1 $atom:C_R_7 $atom:C_2_1 $atom:H___A_1
+    $improper:id9 @improper:type5 $atom:C_R_7 $atom:C_R_8 $atom:C_R_12 $atom:N_R_1
+    $improper:id10 @improper:type1 $atom:C_R_8 $atom:C_R_7 $atom:C_R_9 $atom:H__4
+    $improper:id11 @improper:type1 $atom:C_R_9 $atom:C_R_8 $atom:C_R_10 $atom:H__5
+    $improper:id12 @improper:type6 $atom:C_R_10 $atom:C_R_9 $atom:C_R_11 $atom:N_2_1
+    $improper:id13 @improper:type1 $atom:C_R_11 $atom:C_R_10 $atom:C_R_12 $atom:H__6
+    $improper:id14 @improper:type1 $atom:C_R_12 $atom:C_R_7 $atom:C_R_11 $atom:H__7
+    $improper:id15 @improper:type6 $atom:C_R_13 $atom:C_R_14 $atom:C_R_18 $atom:N_2_2
+    $improper:id16 @improper:type1 $atom:C_R_14 $atom:C_R_13 $atom:C_R_15 $atom:H__8
+    $improper:id17 @improper:type1 $atom:C_R_15 $atom:C_R_14 $atom:C_R_16 $atom:H__9
+    $improper:id18 @improper:type5 $atom:C_R_16 $atom:C_R_15 $atom:C_R_17 $atom:N_R_2
+    $improper:id19 @improper:type1 $atom:C_R_17 $atom:C_R_16 $atom:C_R_18 $atom:H__10
+    $improper:id20 @improper:type1 $atom:C_R_18 $atom:C_R_13 $atom:C_R_17 $atom:H__11
+    $improper:id21 @improper:type7 $atom:N_R_2 $atom:C_R_16 $atom:C_3_1 $atom:C_3_2
+    $improper:id22 @improper:type3 $atom:C_2_2 $atom:C_R_2 $atom:O_2_2 $atom:N_R_3
+    $improper:id23 @improper:type4 $atom:N_R_3 $atom:C_R_19 $atom:C_2_2 $atom:H___A_2
+    $improper:id24 @improper:type5 $atom:C_R_19 $atom:C_R_20 $atom:C_R_24 $atom:N_R_3
+    $improper:id25 @improper:type1 $atom:C_R_20 $atom:C_R_19 $atom:C_R_21 $atom:H__18
+    $improper:id26 @improper:type1 $atom:C_R_21 $atom:C_R_20 $atom:C_R_22 $atom:H__19
+    $improper:id27 @improper:type6 $atom:C_R_22 $atom:C_R_21 $atom:C_R_23 $atom:N_2_3
+    $improper:id28 @improper:type1 $atom:C_R_23 $atom:C_R_22 $atom:C_R_24 $atom:H__20
+    $improper:id29 @improper:type1 $atom:C_R_24 $atom:C_R_19 $atom:C_R_23 $atom:H__21
+    $improper:id30 @improper:type6 $atom:C_R_25 $atom:C_R_26 $atom:C_R_30 $atom:N_2_4
+    $improper:id31 @improper:type1 $atom:C_R_26 $atom:C_R_25 $atom:C_R_27 $atom:H__22
+    $improper:id32 @improper:type1 $atom:C_R_27 $atom:C_R_26 $atom:C_R_28 $atom:H__23
+    $improper:id33 @improper:type5 $atom:C_R_28 $atom:C_R_27 $atom:C_R_29 $atom:N_R_4
+    $improper:id34 @improper:type1 $atom:C_R_29 $atom:C_R_28 $atom:C_R_30 $atom:H__24
+    $improper:id35 @improper:type1 $atom:C_R_30 $atom:C_R_25 $atom:C_R_29 $atom:H__25
+    $improper:id36 @improper:type7 $atom:N_R_4 $atom:C_R_28 $atom:C_3_3 $atom:C_3_4
+    $improper:id37 @improper:type3 $atom:C_2_3 $atom:C_R_6 $atom:O_2_3 $atom:N_R_5
+    $improper:id38 @improper:type4 $atom:N_R_5 $atom:C_R_31 $atom:C_2_3 $atom:H___A_3
+    $improper:id39 @improper:type5 $atom:C_R_31 $atom:C_R_32 $atom:C_R_36 $atom:N_R_5
+    $improper:id40 @improper:type1 $atom:C_R_32 $atom:C_R_31 $atom:C_R_33 $atom:H__32
+    $improper:id41 @improper:type1 $atom:C_R_33 $atom:C_R_32 $atom:C_R_34 $atom:H__33
+    $improper:id42 @improper:type6 $atom:C_R_34 $atom:C_R_33 $atom:C_R_35 $atom:N_2_5
+    $improper:id43 @improper:type1 $atom:C_R_35 $atom:C_R_34 $atom:C_R_36 $atom:H__34
+    $improper:id44 @improper:type1 $atom:C_R_36 $atom:C_R_31 $atom:C_R_35 $atom:H__35
+    $improper:id45 @improper:type6 $atom:C_R_37 $atom:C_R_38 $atom:C_R_42 $atom:N_2_6
+    $improper:id46 @improper:type1 $atom:C_R_38 $atom:C_R_37 $atom:C_R_39 $atom:H__36
+    $improper:id47 @improper:type1 $atom:C_R_39 $atom:C_R_38 $atom:C_R_40 $atom:H__37
+    $improper:id48 @improper:type5 $atom:C_R_40 $atom:C_R_39 $atom:C_R_41 $atom:N_R_6
+    $improper:id49 @improper:type1 $atom:C_R_41 $atom:C_R_40 $atom:C_R_42 $atom:H__38
+    $improper:id50 @improper:type1 $atom:C_R_42 $atom:C_R_37 $atom:C_R_41 $atom:H__39
+    $improper:id51 @improper:type7 $atom:N_R_6 $atom:C_R_40 $atom:C_3_5 $atom:C_3_6
+    $improper:id52 @improper:type8 $atom:C_3_1 $atom:N_R_2 $atom:H__12 $atom:H__13
+    $improper:id53 @improper:type8 $atom:C_3_1 $atom:N_R_2 $atom:H__12 $atom:H__14
+    $improper:id54 @improper:type8 $atom:C_3_1 $atom:N_R_2 $atom:H__13 $atom:H__14
+    $improper:id55 @improper:type9 $atom:C_3_1 $atom:H__12 $atom:H__13 $atom:H__14
+    $improper:id56 @improper:type8 $atom:C_3_2 $atom:N_R_2 $atom:H__15 $atom:H__16
+    $improper:id57 @improper:type8 $atom:C_3_2 $atom:N_R_2 $atom:H__15 $atom:H__17
+    $improper:id58 @improper:type8 $atom:C_3_2 $atom:N_R_2 $atom:H__16 $atom:H__17
+    $improper:id59 @improper:type9 $atom:C_3_2 $atom:H__15 $atom:H__16 $atom:H__17
+    $improper:id60 @improper:type8 $atom:C_3_3 $atom:N_R_4 $atom:H__26 $atom:H__27
+    $improper:id61 @improper:type8 $atom:C_3_3 $atom:N_R_4 $atom:H__26 $atom:H__28
+    $improper:id62 @improper:type8 $atom:C_3_3 $atom:N_R_4 $atom:H__27 $atom:H__28
+    $improper:id63 @improper:type9 $atom:C_3_3 $atom:H__26 $atom:H__27 $atom:H__28
+    $improper:id64 @improper:type8 $atom:C_3_4 $atom:N_R_4 $atom:H__29 $atom:H__30
+    $improper:id65 @improper:type8 $atom:C_3_4 $atom:N_R_4 $atom:H__29 $atom:H__31
+    $improper:id66 @improper:type8 $atom:C_3_4 $atom:N_R_4 $atom:H__30 $atom:H__31
+    $improper:id67 @improper:type9 $atom:C_3_4 $atom:H__29 $atom:H__30 $atom:H__31
+    $improper:id68 @improper:type8 $atom:C_3_5 $atom:N_R_6 $atom:H__40 $atom:H__41
+    $improper:id69 @improper:type8 $atom:C_3_5 $atom:N_R_6 $atom:H__40 $atom:H__42
+    $improper:id70 @improper:type8 $atom:C_3_5 $atom:N_R_6 $atom:H__41 $atom:H__42
+    $improper:id71 @improper:type9 $atom:C_3_5 $atom:H__40 $atom:H__41 $atom:H__42
+    $improper:id72 @improper:type8 $atom:C_3_6 $atom:N_R_6 $atom:H__43 $atom:H__44
+    $improper:id73 @improper:type8 $atom:C_3_6 $atom:N_R_6 $atom:H__43 $atom:H__45
+    $improper:id74 @improper:type8 $atom:C_3_6 $atom:N_R_6 $atom:H__44 $atom:H__45
+    $improper:id75 @improper:type9 $atom:C_3_6 $atom:H__43 $atom:H__44 $atom:H__45
+  }
+
+  write("In Settings") {
+    fix 1 all shake 0.0001 20 0 b @bond:type2 @bond:type7 @bond:type11 a
+  }
+
+} # end of "Azostar" type definition
